@@ -20,7 +20,8 @@
       "import/no-extraneous-dependencies": "off",
       "global-require": "off",
       "import/no-dynamic-require": "off",
-      "no-unused-vars": "warn"
+      "no-unused-vars": "warn",
+      "consistent-return": "off"
     },
     "env": {
       "browser": false,
