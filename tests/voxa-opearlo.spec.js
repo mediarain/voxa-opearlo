@@ -1,10 +1,7 @@
 'use strict';
 
 const chai = require('chai');
-const chaiAsPromised = require('chai-as-promised');
 const OpearloAnalytics = require('opearlo-analytics');
-
-chai.use(chaiAsPromised);
 
 const simple = require('simple-mock');
 
@@ -24,7 +21,12 @@ describe('Voxa-Opearlo plugin', () => {
   beforeEach(() => {
     voxaStateMachine = new Voxa({ views });
     simple.mock(OpearloAnalytics, 'recordAnalytics').callbackWith('MOCK TRACKED');
+    simple.mock(OpearloAnalytics, 'registerVoiceEvent').returnWith('MOCK TRACKED');
   });
+
+  afterEach(function(){
+    simple.restore();
+  })
 
   it('should register Opearlo analytics on LaunchRequest', () => {
     const spy = simple.spy(() => ({ reply: 'LaunchIntent.OpenResponse', to: 'entry' }));
@@ -155,6 +157,7 @@ describe('Voxa-Opearlo plugin', () => {
       });
   });
 
+
   it('should register Opearlo analytics on SessionEndedRequest', () => {
     const spy = simple.spy(() => ({ reply: 'ExitIntent.GeneralExit' }));
     voxaStateMachine.onSessionEnded(spy);
@@ -179,6 +182,7 @@ describe('Voxa-Opearlo plugin', () => {
       .then((reply) => {
         expect(spy.called).to.be.true;
         expect(reply.version).to.equal('1.0');
+        expect(OpearloAnalytics.recordAnalytics.called).to.be.true;
       });
   });
 
