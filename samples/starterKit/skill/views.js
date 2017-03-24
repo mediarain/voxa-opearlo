@@ -7,6 +7,10 @@ const views = (function views() {
         ask: 'Welcome! Ask me for help.',
         reprompt: 'Just say: help me',
       },
+      EasterEgg: {
+        tell: 'Boo!'
+      },
+
       Help: {
         tell: 'This is an example for Opearlo analytics integration.',
       },
