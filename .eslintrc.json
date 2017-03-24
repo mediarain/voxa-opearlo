@@ -21,7 +21,8 @@
       "global-require": "off",
       "import/no-dynamic-require": "off",
       "no-unused-vars": "warn",
-      "consistent-return": "off"
+      "consistent-return": "off",
+      "comma-dangle": "off"
     },
     "env": {
       "browser": false,
