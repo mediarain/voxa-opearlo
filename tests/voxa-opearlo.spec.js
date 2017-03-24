@@ -222,4 +222,61 @@ describe('Voxa-Opearlo plugin', () => {
         expect(reply.error.toString()).to.equal('Error: random error');
       });
   });
+
+  it('should not record analytics if the user is ignored', () => {
+    const spy = simple.spy(() => ({ reply: 'ExitIntent.GeneralExit' }));
+    voxaStateMachine.onSessionEnded(spy);
+
+    const event = {
+      request: {
+        type: 'SessionEndedRequest',
+      },
+      session: {
+        new: false,
+        application: {
+          applicationId: 'appId',
+        },
+        user: {
+          userId: 'user-id',
+        },
+      },
+    };
+
+    voxaOpearlo(voxaStateMachine, Object.assign({ignoreUsers: ['user-id']},opearloConfig));
+    return voxaStateMachine.execute(event)
+      .then((reply) => {
+        expect(OpearloAnalytics.recordAnalytics.called).to.not.be.true;
+      });
+  })
+
+   it('should record sessions terminated due to errors as an error', () => {
+    const spy = simple.spy(() => ({ reply: 'ExitIntent.GeneralExit' }));
+    voxaStateMachine.onSessionEnded(spy);
+
+    const event = {
+      request: {
+        type: 'SessionEndedRequest',
+        reason: 'ERROR',
+        error: {
+          message: 'my message'
+        }
+      },
+      session: {
+        new: false,
+        application: {
+          applicationId: 'appId',
+        },
+        user: {
+          userId: 'user-id',
+        },
+      },
+    };
+
+    voxaOpearlo(voxaStateMachine, Object.assign({ignoreUsers: ['user-id']},opearloConfig));
+    return voxaStateMachine.execute(event)
+      .then((reply) => {
+        expect(OpearloAnalytics.registerVoiceEvent.lastCall.args[2]).to.equal('Error');
+      });
+  })
+
 });
