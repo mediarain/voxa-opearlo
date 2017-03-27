@@ -34,6 +34,13 @@ describe('EventRider', () => {
     expect(sut.ignoreState).to.be.false;
   });
 
+  it('ignore method means we ignore things', () => {
+    let sut = new EventRider({},{name: 'blah'});
+    expect(sut.ignoreState).to.be.false;
+    sut.ignore();
+    expect(sut.ignoreState).to.be.true;
+  });
+
   it('remember the state name', () => {
     let sut = new EventRider({},{name: 'goodie'});
     expect(sut.name).to.equal('goodie')
@@ -46,6 +53,13 @@ describe('EventRider', () => {
       expect(OpearloAnalytics.registerVoiceEvent.called).to.be.true;
       expect(OpearloAnalytics.registerVoiceEvent.lastCall.args[2]).to.equal('blah');
       expect(OpearloAnalytics.registerVoiceEvent.lastCall.args[3].meat).to.equal('yummy');
+    });
+
+    it('write a custom event with no variables', () => {
+      let sut = new EventRider({user: {userId: 'myId'}},{name: 'goodie'});
+      sut.log('blah')
+      expect(OpearloAnalytics.registerVoiceEvent.called).to.be.true;
+      expect(OpearloAnalytics.registerVoiceEvent.lastCall.args[2]).to.equal('blah');
     });
   })
 });
