@@ -1,7 +1,6 @@
 'use strict';
 
 const chai = require('chai');
-const OpearloAnalytics = require('opearlo-analytics');
 
 const simple = require('simple-mock');
 
@@ -47,7 +46,19 @@ describe('detect', () => {
     })
   });
 
-  describe('versionNameFromPackage',() => {
-  });
+  describe('deviceCapabilities',() => {
+    let sut = detect.deviceCapabilities;
+    itIs({},'none')
+    itIs({AudioPlayer: {}},'AudioPlayer')
+    itIs({"AudioPlayer":{},"Video": {}},'AudioPlayer;Video')
 
+
+    function itIs(supportedInterfaces, expected) {
+      it('finds ' + expected,function(){
+        let actual = sut({context: {System: {device:{ supportedInterfaces: supportedInterfaces }}}})
+        expect(actual).to.equal(expected);
+      })
+    }
+
+  });
 });

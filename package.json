@@ -33,7 +33,7 @@
     "bluebird": "^3.4.1",
     "debug": "^2.6.0",
     "lodash": "^4.13.1",
-    "universal-analytics": "^0.3.10"
+    "universal-analytics": "^0.4.13"
   },
   "devDependencies": {
     "async": "^2.2.0",

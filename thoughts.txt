@@ -21,22 +21,31 @@ Config
 
 To Implement
 =============
-  Intents and States are logged
-
-  App version logging
-  Rider for logging custom events
-  Exceptions
+  Done:
+  Responses per round-trip are logged as screens
   Rider gives access to raw GA for transaction logging
-  Start/end session control
+  Raw Intents
+  Raw States
+  Raw Slots
+  App version logging
   Device capabilities
+  Start/end session control
   locale logging
+  Rider for logging custom events
+
+  To Verfiy:
+  Exceptions
   per-intent timings (from a state)
-  if a user has linked their account into something or other
+
+
+  Docs
 
 Not going to implement
 ========
 * Ability to set geographical override. Could still do it manually via other params
 * Making only intent logging interactive (since I can't see bounce metrics anywhere anyway)
+  if a user has linked their account into something or other
+  events from responses doc
 
 Things we've seen before
 * Logging custom events (pretty much on each reply)
@@ -53,7 +62,7 @@ Nice to add
 * Ability to set the geographical override in skills that have a ZIP code
 * ul, based on the request locale
 * Document location URL to set our current state? Or maybe just the title?
-* Only intent events should be interactive. All other events are non-interactive
+* Only pageview events should be interactive. All other events are non-interactive
 * timings: What are the categories?
 * Know if the user has linked their account. Probably through acuisition channel? Or something else?
 
