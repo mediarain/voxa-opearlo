@@ -26,6 +26,7 @@ const opearloConfig = {
   userId: 'userId',
   appName: 'appName',
   apiKey: 'apiKey',
+  suppressSending: false, // A flag to supress sending hits. Useful while developing on the skill
 };
 
 voxaOpearlo(skill, opearloConfig);

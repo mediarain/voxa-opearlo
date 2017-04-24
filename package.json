@@ -1,6 +1,6 @@
 {
   "name": "voxa-opearlo",
-  "version": "0.2.3",
+  "version": "0.2.4",
   "description": "Integrate Opearlo analytics into your Alexa apps using the voxa framework",
   "main": "index.js",
   "scripts": {
