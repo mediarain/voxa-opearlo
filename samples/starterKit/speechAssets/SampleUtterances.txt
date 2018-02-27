@@ -1,3 +1,0 @@
-LaunchIntent open
-
-AMAZON.HelpIntent help me
