@@ -1921,9 +1921,9 @@ verror@1.10.0:
     core-util-is "1.0.2"
     extsprintf "^1.2.0"
 
-voxa@^3.0.0-alpha7:
-  version "3.0.0-alpha7"
-  resolved "https://registry.yarnpkg.com/voxa/-/voxa-3.0.0-alpha7.tgz#6d41d0a0d318dc73ffb207282cc996d2a3308831"
+voxa@^3.0.0-alpha8:
+  version "3.0.0-alpha8"
+  resolved "https://registry.yarnpkg.com/voxa/-/voxa-3.0.0-alpha8.tgz#91f1e50b9c489029b095ca2f7db743abd69342ef"
   dependencies:
     "@types/actions-on-google" "^1.6.0"
     "@types/alexa-sdk" "^1.0.11"
