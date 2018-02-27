@@ -1,11 +1,11 @@
 {
   "name": "voxa-opearlo",
-  "version": "0.2.4",
+  "version": "3.0.0-alpha",
   "description": "Integrate Opearlo analytics into your Alexa apps using the voxa framework",
   "main": "index.js",
   "scripts": {
-    "test": "istanbul cover _mocha -- --recursive tests",
-    "test-ci": "JUNIT_REPORT_PATH=junit.xml istanbul cover _mocha -- --recursive --colors --reporter mocha-jenkins-reporter tests",
+    "test": "mocha  --recursive tests",
+    "test-ci": "JUNIT_REPORT_PATH=junit.xml istanbul cover _mocha -- --recursive --colors tests",
     "cobertura": "istanbul report cobertura --root coverage",
     "lint": "eslint lib test"
   },
@@ -36,14 +36,15 @@
     "opearlo-analytics": "^0.1.9"
   },
   "devDependencies": {
-    "chai": "^3.5.0",
+    "chai": "^4.1.2",
     "eslint": "3.15.0",
     "eslint-config-airbnb-base": "11.1.0",
     "eslint-plugin-import": "2.2.0",
     "istanbul": "^0.4.5",
     "mocha": "3.2.0",
-    "mocha-jenkins-reporter": "0.3.7",
-    "simple-mock": "^0.7.3"
+    "simple-mock": "^0.7.3",
+    "source-map-support": "^0.5.3",
+    "voxa": "^3.0.0-alpha7"
   },
   "bugs": {
     "url": "https://github.com/mediarain/voxa-opearlo/issues"

@@ -9,20 +9,23 @@
 
 const views = (function views() {
   return {
-    LaunchIntent: {
-      OpenResponse: { tell: 'Hello! How are you?' },
-    },
-    Question: {
-      Ask: { ask: 'What time is it?' },
-    },
-    ExitIntent: {
-      GeneralExit: { tell: 'Ok. Goodbye.' },
-    },
-    BadInput: {
-      RepeatLastAskReprompt: { say: 'I\'m sorry. I didn\'t understand.' },
-    },
+    en: {
+      translation: {
+        LaunchIntent: {
+          OpenResponse: 'Hello! How are you?'
+        },
+        Question: {
+          Ask: { ask: 'What time is it?' },
+        },
+        ExitIntent: {
+          GeneralExit: 'Ok. Goodbye.',
+        },
+        BadInput: {
+          RepeatLastAskReprompt: 'I\'m sorry. I didn\'t understand.',
+        },
+      }
+    }
   };
 }());
 
 module.exports = views;
-
