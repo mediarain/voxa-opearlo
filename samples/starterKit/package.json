@@ -6,7 +6,9 @@
   "scripts": {
     "test": "mocha --recursive test/**/*.spec.js",
     "watch": "node node_modules/gulp/bin/gulp.js watch",
-    "lint": "eslint config/ gulpfile.js services/ skill/ speechAssets/ test/ www/"
+    "lint": "eslint config/ gulpfile.js services/ skill/ speechAssets/ test/ www/",
+    "snyk-protect": "snyk protect",
+    "prepublish": "npm run snyk-protect"
   },
   "author": "Rain",
   "engines": {
@@ -32,7 +34,8 @@
     "request": "^2.72.0",
     "serve-static": "^1.10.2",
     "string": "^3.3.1",
-    "voxa-opearlo": "git+ssh://git@github.com:mediarain/voxa-opearlo.git"
+    "voxa-opearlo": "git+ssh://git@github.com:mediarain/voxa-opearlo.git",
+    "snyk": "^1.189.0"
   },
   "devDependencies": {
     "chai": "^3.5.0",
@@ -53,5 +56,6 @@
   "bugs": {
     "url": "https://github.com/mediarain/voxa/issues"
   },
-  "homepage": "https://github.com/mediarain/voxa#readme"
+  "homepage": "https://github.com/mediarain/voxa#readme",
+  "snyk": true
 }
