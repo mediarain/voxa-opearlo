@@ -32,7 +32,7 @@
   "dependencies": {
     "bluebird": "^3.4.1",
     "debug": "^2.6.0",
-    "lodash": "^4.13.1",
+    "lodash": "^4.17.12",
     "opearlo-analytics": "^0.1.9"
   },
   "devDependencies": {
